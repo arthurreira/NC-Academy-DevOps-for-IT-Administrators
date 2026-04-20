@@ -10,6 +10,37 @@ Uses Terraform to create a local file (`hellos.txt`) with the content `"Terrafor
 
 - [Terraform](https://developer.hashicorp.com/terraform/install) (v1.0+)
 
+### Installing Terraform
+
+**Windows (winget):**
+```bash
+winget install Hashicorp.Terraform
+```
+
+**Windows (Chocolatey):**
+```bash
+choco install terraform
+```
+
+**macOS (Homebrew):**
+```bash
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+```
+
+**Linux (APT - Ubuntu/Debian):**
+```bash
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt-get update && sudo apt-get install terraform
+```
+
+**Verify installation:**
+```bash
+terraform --version
+```
+
 ## Getting Started
 
 1. **Clone the repository**
