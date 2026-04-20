@@ -1,10 +1,15 @@
 # DevOps for IT Administrators
 
-A Terraform starter project demonstrating Infrastructure as Code (IaC) fundamentals using the `hashicorp/local` provider.
+A progressive Terraform learning project with hands-on exercises — from basics to loops and outputs. All exercises run locally using the `hashicorp/local` provider (no cloud account needed).
 
-## What It Does
+## Exercises
 
-Uses Terraform to create a local file (`hellos.txt`) with the content `"Terraform is working!"` — a simple way to verify your Terraform setup is functioning correctly.
+| # | Folder | Concept | What it creates |
+|---|--------|---------|-----------------|
+| 1 | `01-basics/` | Resources, providers | A single `hello.html` page |
+| 2 | `02-variables/` | Variables, types, tfvars | A customizable nginx-style HTML page |
+| 3 | `03-loops/` | `for_each`, maps | Multiple HTML pages from a map |
+| 4 | `04-outputs/` | Outputs, expressions | Same as 03 + prints file paths & summary |
 
 ## Prerequisites
 
@@ -43,43 +48,50 @@ terraform --version
 
 ## Getting Started
 
-1. **Clone the repository**
-   ```bash
-   git clone <repo-url>
-   cd DevOps-for-IT-Administrators
-   ```
+Each exercise is self-contained. Pick any folder and run:
 
-2. **Initialize Terraform** (downloads required providers)
-   ```bash
-   terraform init
-   ```
+```bash
+cd 01-basics          # (or 02-variables, 03-loops, 04-outputs)
+terraform init        # Download providers
+terraform plan        # Preview what will be created
+terraform apply       # Create the HTML files
+```
 
-3. **Preview changes**
-   ```bash
-   terraform plan
-   ```
+Open the generated files in `output/` with your browser to see the results.
 
-4. **Apply the configuration**
-   ```bash
-   terraform apply
-   ```
+**Clean up** when done:
+```bash
+terraform destroy
+```
 
-5. **Verify** — a `hellos.txt` file should be created with the content:
-   ```
-   Terraform is working!
-   ```
+### Using variables (exercises 02-04)
 
-6. **Clean up** (removes the created file)
-   ```bash
-   terraform destroy
-   ```
+```bash
+cd 02-variables
+cp terraform.tfvars.example terraform.tfvars   # Copy the example
+# Edit terraform.tfvars with your values
+terraform apply
+```
 
 ## Project Structure
 
 ```
-├── main.tf                 # Terraform configuration
-├── .terraform.lock.hcl     # Dependency lock file
-├── .gitignore              # Excludes state files and provider binaries
+├── 01-basics/
+│   └── main.tf                 # Single resource
+├── 02-variables/
+│   ├── main.tf                 # Uses variables for content
+│   ├── variables.tf            # Variable declarations
+│   └── terraform.tfvars.example
+├── 03-loops/
+│   ├── main.tf                 # for_each over a map
+│   ├── variables.tf            # Map of pages
+│   └── terraform.tfvars.example
+├── 04-outputs/
+│   ├── main.tf                 # Resources with environment label
+│   ├── variables.tf            # Variables + environment
+│   ├── outputs.tf              # Output definitions
+│   └── terraform.tfvars.example
+├── .gitignore
 └── README.md
 ```
 

@@ -1,0 +1,21 @@
+# Copy this file to terraform.tfvars and customize
+# Add or remove pages from the map to create more/fewer HTML files
+
+pages = {
+  index = {
+    title = "My Home Page"
+    body  = "Custom welcome message here"
+  }
+  about = {
+    title = "About Our Team"
+    body  = "We are a DevOps team learning Terraform"
+  }
+  contact = {
+    title = "Get In Touch"
+    body  = "Email us at team@company.com"
+  }
+  services = {
+    title = "Our Services"
+    body  = "We offer cloud infrastructure automation"
+  }
+}

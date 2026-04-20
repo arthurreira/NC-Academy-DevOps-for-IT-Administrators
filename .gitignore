@@ -1,5 +1,5 @@
 # Terraform
-.terraform/
+**/.terraform/
 *.tfstate
 *.tfstate.backup
 *.tfstate.*.backup
@@ -14,5 +14,6 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-# Generated output
+# Generated output files
+**/output/
 hellos.txt

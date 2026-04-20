@@ -1,0 +1,7 @@
+# Copy this file to terraform.tfvars and customize the values
+# terraform.tfvars is gitignored so your local values won't be committed
+
+page_title   = "My Custom Page"
+page_content = "This content was set via terraform.tfvars!"
+server_port  = 3000
+bg_color     = "#e8f4f8"

@@ -1,0 +1,14 @@
+# Copy this file to terraform.tfvars and customize
+
+environment = "staging"
+
+pages = {
+  index = {
+    title = "Home"
+    body  = "Welcome to staging!"
+  }
+  about = {
+    title = "About"
+    body  = "Staging environment for testing"
+  }
+}
